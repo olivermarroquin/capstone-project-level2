@@ -4,7 +4,18 @@
 
 class BookStore {
   constructor() {
-    this.books = [];
+    this.books = [
+      {
+        id: 1,
+        title: "Atomic Habits",
+        author: "James Clear",
+        genre: "Self-help",
+        price: 18.99,
+        stock: 4,
+        description:
+          "A practical guide to building good habits and breaking bad ones.",
+      },
+    ];
   }
 }
 
