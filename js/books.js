@@ -1,10 +1,13 @@
 "use strict";
 
-// this is the shared file that all my other pages will use. It will define the data (class and book data)
+// this is the shared file that all my other pages will use. It will define the data (class and book data). I decided to use a class because i'm grouping data (this.books) and behavior (getAllBooks() into one unit.
 
 class BookStore {
   constructor() {
+    // this.books is an array of objects, not an object itself.
     this.books = [
+      //Each item/book inside this array is a JS object
+
       {
         id: 1,
         title: "Atomic Habits",
@@ -67,12 +70,13 @@ class BookStore {
     ];
   }
 
+  //syntax for javascript functions/methods = don't need the 'function' keyword. shorthand for this: BookStore.prototype.getAllBooks = function() { ... }
   getAllBooks() {
     return this.books;
   }
 }
 
-// this is what my app will use later... 'store'
+// this is what my app will use later... 'store' is an object instance of class BookStore
 const store = new BookStore();
 // console.log(store.books);
 
