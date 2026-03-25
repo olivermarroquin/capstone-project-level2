@@ -1,6 +1,6 @@
 "use strict";
 
-// this is the shared file that all my other pages will use. It will define the data (class and book data). I decided to use a class because i'm grouping data (this.books) and behavior (getAllBooks() into one unit.
+// this is the shared file that all my other pages will use. It will define the data (class and book data). I decided to use a class because i'm grouping data (this.books) and behavior (getAllBooks() into one unit. The way I think of classes is it is like a manager, books array is like the inventory and methods are like the actions the manager can perform. so when i say: store.getAllBooks() that is like saying, 'hey store, give me all your books'.
 
 class BookStore {
   constructor() {
@@ -74,10 +74,16 @@ class BookStore {
   getAllBooks() {
     return this.books;
   }
+
+  getFeaturedBooks() {
+    return this.books.slice(0, 3); //start at index 0 and stop before index 3
+  }
 }
 
 // this is what my app will use later... 'store' is an object instance of class BookStore
 const store = new BookStore();
 // console.log(store.books);
 
-console.log(store.getAllBooks());
+// console.log(store.getAllBooks());
+
+console.log(store.getFeaturedBooks());
