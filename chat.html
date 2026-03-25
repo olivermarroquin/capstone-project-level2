@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Assistant | Next Chapter Books</title>
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <h1>Next Chapter Books</h1>
+        <ul>
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./catalog.html">Catalog</a></li>
+          <li><a href="./chat.html">Book Assistant</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section>
+        <h2>Ask the Book Assistant</h2>
+        <p>
+          Ask aboout authors, genres, prices, descriptions, or which book might
+          fit your interests.
+        </p>
+        <!-- output: dom anchor for js -->
+        <div id="output"></div>
+        <form id="inputArea">
+          <label for="prompt">Your question</label>
+          <input
+            type="text"
+            id="prompt"
+            placeholder="Which fantasy book do you have?"
+          />
+          <button type="submit">Send</button>
+        </form>
+        <p id="chatStatus"></p>
+      </section>
+    </main>
+    <footer>&copy; 2026 Next Chapter Books</footer>
+  </body>
+</html>

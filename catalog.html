@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Catalog | Newt Chapter Books</title>
+    <link rel="stylesheet" href=".css/main.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <h1>Next Chapter Books</h1>
+        <ul>
+          <li><a href="./index.html">Index</a></li>
+          <li><a href="./catalog.html">Catalog</a></li>
+          <li><a href="./chat.html"></a>Book Assistant</li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section>
+        <h2>Browse Our Catalog</h2>
+        <form id="filterForm">
+          <label for="genreSelect">Genre</label>
+          <select id="genreSelect">
+            <option value="All">All</option>
+            <option value="Self-Help">Self-Help</option>
+            <option value="Fantasy">Fantasy</option>
+            <option value="Productivity">Productivity</option>
+            <option value="Science Fiction">Science Fiction</option>
+            <option value="Classic">Classic</option>
+            <option value="Thriller">Thriller</option>
+          </select>
+          <label for="searchInput">Search</label>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search by title or author"
+          />
+          <button type="submit">Search</button>
+        </form>
+        <p id="catalogStatus"></p>
+        <!-- catalogBooks: dom anchor for js -->
+        <div id="catalogBooks"></div>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2026 Next Chapter Books</p>
+    </footer>
+  </body>
+</html>
