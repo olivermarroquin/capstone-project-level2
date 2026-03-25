@@ -7,3 +7,7 @@ class BookStore {
     this.books = [];
   }
 }
+
+// this is what my app will use later... 'store'
+const store = new BookStore();
+console.log(store);
