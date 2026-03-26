@@ -17,6 +17,7 @@ const featuredBooks = store.getFeaturedBooks();
 // featuredBooksEl.appendChild(firstBookTitle);
 
 function renderBookCard(book) {
+  // I used createElement and textContent to safely construct DOM elements and avoid potential injection issues. It also makes the structure clearer and easier to debug compared to inserting HTML strings.
   const article = document.createElement("article");
 
   const title = document.createElement("h3");
@@ -37,6 +38,7 @@ function renderBookCard(book) {
   const description = document.createElement("p");
   description.textContent = book.description;
 
+  // I used .append() because I can add multiple elements at once instead of multiple appendChild()'s
   article.append(title, author, genre, price, stock, description);
 
   return article;
@@ -53,4 +55,7 @@ function renderFeaturedBooks() {
   });
 }
 
-// renderFeaturedBooks();
+function main() {
+  renderFeaturedBooks();
+}
+main();
