@@ -58,8 +58,20 @@ function renderBooks(bookList) {
   });
 }
 
+function getFilteredBooks() {
+  const selectedGenre = genreSelectEl.value;
+  return store.filterByGenre(selectedGenre);
+}
+
+function handleFilter(event) {
+  event.preventDefault();
+  const filteredBooks = getFilteredBooks();
+  renderBooks(filteredBooks);
+}
+
 function main() {
   renderBooks(books);
+  filterFormEl.addEventListener("submit", handleFilter);
 }
 
 main();

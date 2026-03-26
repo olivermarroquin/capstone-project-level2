@@ -78,6 +78,13 @@ class BookStore {
   getFeaturedBooks() {
     return this.books.slice(0, 3); //start at index 0 and stop before index 3
   }
+
+  filterByGenre(genre) {
+    if (!genre || genre === "All") {
+      return this.books;
+    }
+    return this.books.filter((book) => book.genre === genre);
+  }
 }
 
 // this is what my app will use later... 'store' is an object instance of class BookStore
@@ -87,3 +94,5 @@ const store = new BookStore();
 // console.log(store.getAllBooks());
 
 // console.log(store.getFeaturedBooks());
+
+// console.log(store.filterByGenre("Fantasy"));
