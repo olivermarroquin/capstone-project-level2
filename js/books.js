@@ -83,6 +83,22 @@ class BookStore {
     if (!genre || genre === "All") {
       return this.books;
     }
+    // METHOD 1  to get the filter:
+    // return this.books.filter(function (book) {
+    //   return book.genre === genre;
+    // });
+
+    // METHOD 2 to get the filter:
+    // const filteredBooks = [];
+    // for (let i = 0; i < this.books.length; i++) {
+    //   const book = this.books[i];
+    //   if (book.genre === genre) {
+    //     filteredBooks.push(book);
+    //   }
+    // }
+    // return filteredBooks;
+
+    //METHOD 3 To get the filter:
     return this.books.filter((book) => book.genre === genre);
   }
 }
