@@ -42,12 +42,15 @@ function renderBookCard(book) {
   return article;
 }
 
-// const firstBookCard = renderBookCard(featuredBooks[0]);
-featuredBooksEl.textContent = "";
+function renderFeaturedBooks() {
+  // const firstBookCard = renderBookCard(featuredBooks[0]);
+  // featuredBooksEl.appendChild(firstBookCard);
+  featuredBooksEl.textContent = "";
 
-featuredBooks.forEach((book) => {
-  const card = renderBookCard(book);
-  featuredBooksEl.appendChild(card);
-});
+  featuredBooks.forEach((book) => {
+    const card = renderBookCard(book);
+    featuredBooksEl.appendChild(card);
+  });
+}
 
-featuredBooksEl.appendChild(firstBookCard);
+// renderFeaturedBooks();
