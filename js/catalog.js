@@ -4,9 +4,15 @@
 
 const catalogBooksEl = document.getElementById("catalogBooks");
 // console.log(catalogBooksEl);
-
+const filterFormEl = document.getElementById("filterForm");
+const genreSelectEl = document.getElementById("genreSelect");
+const catalogStatusEl = document.getElementById("catalogStatus");
 const books = store.getAllBooks();
 // console.log(books);
+
+function renderStatus(message) {
+  catalogStatusEl.textContent = message;
+}
 
 function renderBookCard(book) {
   const article = document.createElement("article");
@@ -36,8 +42,24 @@ function renderBookCard(book) {
 // const firstBookCard = renderBookCard(books[0]);
 // catalogBooksEl.appendChild(firstBookCard);
 
-catalogBooksEl.textContent = "";
-books.forEach((book) => {
-  const card = renderBookCard(book);
-  catalogBooksEl.appendChild(card);
-});
+function renderBooks(bookList) {
+  catalogBooksEl.textContent = "";
+
+  if (!bookList.length === 0) {
+    renderStatus("No books found.");
+    return;
+  }
+
+  renderStatus(`Showing ${bookList.length} book(s).`);
+
+  bookList.forEach((book) => {
+    const card = renderBookCard(book);
+    catalogBooksEl.appendChild(card);
+  });
+}
+
+function main() {
+  renderBooks(books);
+}
+
+main();
