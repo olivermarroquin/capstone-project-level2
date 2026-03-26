@@ -7,10 +7,14 @@ const inputAreaEl = document.getElementById("inputArea");
 const promptEl = document.getElementById("prompt");
 const chatStatusEl = document.getElementById("chatStatus");
 
-console.log(outputEl);
-console.log(inputAreaEl);
-console.log(promptEl);
-console.log(chatStatusEl);
+// console.log(outputEl);
+// console.log(inputAreaEl);
+// console.log(promptEl);
+// console.log(chatStatusEl);
+
+function renderStatus(message) {
+  chatStatusEl.textContent = message;
+}
 
 function renderMessage(message, isBot) {
   const p = document.createElement("p");
@@ -21,16 +25,21 @@ function renderMessage(message, isBot) {
   }
   outputEl.appendChild(p);
 }
-renderMessage("Hi! Ask me about our books", true);
 
 function handleSubmit(event) {
   event.preventDefault();
   const userQuestion = promptEl.value.trim();
   if (!userQuestion) {
-    chatStatusEl.textContent = "Please Enter a Question.";
+    renderStatus("Please enter a question.");
     return;
   }
   renderMessage(userQuestion, false);
+  renderMessage("I can help answer questions about our books.", true);
   promptEl.value = "";
-  chatStatusEl.textContent = "Message sent.";
+  renderStatus("Message sent.");
+}
+
+function main() {
+  renderMessage("Hi! Ask me about our books", true);
+  inputAreaEl.addEventListener("submit", handleSubmit);
 }
