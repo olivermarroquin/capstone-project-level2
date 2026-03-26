@@ -43,3 +43,5 @@ function main() {
   renderMessage("Hi! Ask me about our books", true);
   inputAreaEl.addEventListener("submit", handleSubmit);
 }
+
+main();
