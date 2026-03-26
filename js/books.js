@@ -86,4 +86,4 @@ const store = new BookStore();
 
 // console.log(store.getAllBooks());
 
-console.log(store.getFeaturedBooks());
+// console.log(store.getFeaturedBooks());
