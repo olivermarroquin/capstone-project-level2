@@ -69,7 +69,6 @@ class BookStore {
       },
     ];
   }
-
   //syntax for javascript functions/methods = don't need the 'function' keyword. shorthand for this: BookStore.prototype.getAllBooks = function() { ... }
   getAllBooks() {
     return this.books;
@@ -101,8 +100,23 @@ class BookStore {
     //METHOD 3 To get the filter:
     return this.books.filter((book) => book.genre === genre);
   }
-}
 
+  searchBooks(searchTerm) {
+    const normalizedSearch = searchTerm.trim().toLowerCase();
+
+    if (!normalizedSearch) {
+      return this.books;
+    }
+
+    return this.books.filter((book) => {
+      return (
+        //includes() for partial matching
+        book.title.toLowerCase().includes(normalizedSearch) ||
+        book.author.toLowerCase().includes(normalizedSearch)
+      );
+    });
+  }
+}
 // this is what my app will use later... 'store' is an object instance of class BookStore
 const store = new BookStore();
 // console.log(store.books);
@@ -112,3 +126,6 @@ const store = new BookStore();
 // console.log(store.getFeaturedBooks());
 
 // console.log(store.filterByGenre("Fantasy"));
+
+// console.log(store.searchBooks("tolkien"));
+// console.log(store.searchBooks("atomic"));

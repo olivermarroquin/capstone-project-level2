@@ -7,6 +7,7 @@ const catalogBooksEl = document.getElementById("catalogBooks");
 const filterFormEl = document.getElementById("filterForm");
 const genreSelectEl = document.getElementById("genreSelect");
 const catalogStatusEl = document.getElementById("catalogStatus");
+const searchInputEl = document.getElementById("searchInput");
 const books = store.getAllBooks();
 // console.log(books);
 
@@ -60,7 +61,21 @@ function renderBooks(bookList) {
 
 function getFilteredBooks() {
   const selectedGenre = genreSelectEl.value;
-  return store.filterByGenre(selectedGenre);
+  //   return store.filterByGenre(selectedGenre);
+  const searchValue = searchInputEl.value.trim().toLowerCase();
+  //i want to get filtered books first and then filter down further by the searchValue
+  let filteredBooks = store.filterByGenre(selectedGenre);
+
+  //filter again by the searchValue in the searchInput
+  if (searchValue) {
+    filteredBooks = filteredBooks.filter((book) => {
+      return (
+        book.title.toLowerCase().includes(searchValue) ||
+        book.author.toLowerCase().includes(searchValue)
+      );
+    });
+  }
+  return filteredBooks;
 }
 
 function handleFilter(event) {
