@@ -5,14 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Next Chapter Books</title>
     <!-- I may use tailwing instead or in addition to this but I will create this for now -->
-    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="js/books.js" defer></script>
     <!-- I need to add the books.js first because if i want my other js files to use store it must be loaded before it gets used -->
     <script src="js/home.js" defer></script>
   </head>
-  <body>
-    <header>
-      <nav>
+  <body class="bg-gray-200 text-gray-700">
+    <header class="bg-white shadow-md">
+      <nav class="max-w-6xl mx-auto flex justify-between items-center p-4">
         <h1>Next Chapter Books</h1>
         <ul>
           <li><a href="index.html">Home</a></li>
