@@ -20,10 +20,15 @@ function renderMessage(message, isBot) {
   const p = document.createElement("p");
   if (isBot) {
     p.textContent = `Bot: ${message}`;
+    p.className =
+      "max-w-[75%] mr-auto bg-gray-200 text-black px-3 py-2 rounded-lg mb-2";
   } else {
     p.textContent = `You: ${message}`;
+    p.className =
+      "max-w-[75%] ml-auto bg-blue-600 text-white px-3 py-2 rounded-lg mb-2";
   }
   outputEl.appendChild(p);
+  outputEl.scrollTop = outputEl.scrollHeight;
 }
 
 async function wakeUp() {
@@ -111,11 +116,15 @@ async function handleSubmit(event) {
   const userQuestion = promptEl.value.trim(); //I remove any deadspaces so that if spaces were entered in the input field, it would make it empty and say: Please enter a question.
   if (!userQuestion) {
     renderStatus("Please enter a question.");
+    chatStatusEl.classList.add("text-red-600");
     return;
   }
   renderMessage(userQuestion, false);
   //   renderMessage("I can help answer questions about our books.", true);
   promptEl.value = "";
+  chatStatusEl.classList.remove("text-red-600");
+  chatStatusEl.classList.remove("text-green-600");
+  chatStatusEl.classList.add("text-black-600");
   renderStatus("Loading...");
 
   try {
@@ -123,7 +132,8 @@ async function handleSubmit(event) {
     const key = await getKey();
     const aiResponse = await callAI(userQuestion, key);
     renderMessage(aiResponse, true);
-    renderStatus("Success");
+    renderStatus("Success!");
+    chatStatusEl.classList.add("text-green-600");
   } catch (error) {
     console.error(error);
     renderMessage(
@@ -131,6 +141,8 @@ async function handleSubmit(event) {
       true,
     );
     renderStatus("Error: Could not load chatbot response.");
+    chatStatusEl.classList.remove("text-green-600");
+    chatStatusEl.classList.add("text-red-600");
   }
 }
 

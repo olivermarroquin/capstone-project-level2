@@ -18,7 +18,7 @@ function renderStatus(message) {
 function renderBookCard(book) {
   const article = document.createElement("article");
   article.className =
-    "bg-white rounded-xl shadow-md p-4 hover:shadow-lg transition";
+    "bg-white rounded-xl shadow-xl p-4 hover:shadow-2xl transition";
 
   const title = document.createElement("h3");
   title.textContent = book.title;

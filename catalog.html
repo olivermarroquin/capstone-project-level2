@@ -25,7 +25,7 @@
       </nav>
     </header>
     <main>
-      <section>
+      <section class="m-4 flex-column">
         <h2>Browse Our Catalog</h2>
         <form id="filterForm" class="flex flex-wrap gap-4 items-end mb-6">
           <label for="genreSelect">Genre</label>
@@ -54,10 +54,13 @@
         </form>
         <p id="catalogStatus"></p>
         <!-- catalogBooks: dom anchor for js -->
-        <div id="catalogBooks"></div>
+        <div
+          id="catalogBooks"
+          class="max-w-5xl flex-col justify-self-center p-4 grid gap-6 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3"
+        ></div>
       </section>
     </main>
-    <footer>
+    <footer class="m-6 mx-12 mt-20">
       <p>&copy; 2026 Next Chapter Books</p>
     </footer>
   </body>
