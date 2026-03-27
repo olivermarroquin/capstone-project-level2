@@ -23,9 +23,9 @@
     <main>
       <section>
         <h2>Browse Our Catalog</h2>
-        <form id="filterForm">
+        <form id="filterForm" class="flex flex-wrap gap-4 items-end mb-6">
           <label for="genreSelect">Genre</label>
-          <select id="genreSelect">
+          <select id="genreSelect" class="border rounded-md p-2">
             <option value="All">All</option>
             <option value="Self-Help">Self-Help</option>
             <option value="Fantasy">Fantasy</option>
@@ -39,6 +39,7 @@
             type="text"
             id="searchInput"
             placeholder="Search by title or author"
+            class="border rounded-md p-2"
           />
           <button type="submit">Search</button>
         </form>
