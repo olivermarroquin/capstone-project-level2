@@ -9,14 +9,18 @@
     <script src="js/books.js" defer></script>
     <script src="js/chat.js" defer></script>
   </head>
-  <body>
-    <header>
-      <nav>
-        <h1>Next Chapter Books</h1>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="catalog.html">Catalog</a></li>
-          <li><a href="chat.html">Book Assistant</a></li>
+  <body class="bg-gray-200 text-gray-700">
+    <header class="bg-white shadow-md">
+      <nav class="max-w-6xl mx-auto flex justify-between items-center p-4">
+        <h1 class="text-xl font-bold">Next Chapter Books</h1>
+        <ul class="flex gap-6 text-sm font-medium">
+          <li><a href="index.html" class="hover:text-blue-600">Home</a></li>
+          <li>
+            <a href="catalog.html" class="hover:text-blue-600">Catalog</a>
+          </li>
+          <li>
+            <a href="chat.html" class="hover:text-blue-600">Book Assistant</a>
+          </li>
         </ul>
       </nav>
     </header>
@@ -28,7 +32,7 @@
           fit your interests.
         </p>
         <!-- output: dom anchor for js -->
-        <div id="output"></div>
+        <div id="output" class="bg-white p-4 rounded-lg"></div>
         <form id="inputArea">
           <label for="prompt">Your question</label>
           <input
