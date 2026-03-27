@@ -17,24 +17,32 @@ function renderStatus(message) {
 
 function renderBookCard(book) {
   const article = document.createElement("article");
+  article.className =
+    "bg-white rounded-xl shadow-md p-4 hover:shadow-lg transition";
 
   const title = document.createElement("h3");
   title.textContent = book.title;
+  title.className = "text-lg font-semibold mb-2";
 
   const author = document.createElement("p");
   author.textContent = `Author: ${book.author}`;
+  author.className = "text-sm text-gray-600";
 
   const genre = document.createElement("p");
   genre.textContent = `Genre: ${book.genre}`;
+  genre.className = "text-sm text-gray-600";
 
   const price = document.createElement("p");
   price.textContent = `Price: $${book.price}`;
+  price.className = "text-sm text-gray-800 font-medium";
 
   const stock = document.createElement("p");
   stock.textContent = `In Stock: ${book.stock}`;
+  stock.className = "text-sm text-gray-500";
 
   const description = document.createElement("p");
   description.textContent = book.description;
+  description.className = "text-sm mt-2";
 
   article.append(title, author, genre, price, stock, description);
   return article;
