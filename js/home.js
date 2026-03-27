@@ -59,3 +59,18 @@ function main() {
   renderFeaturedBooks();
 }
 main();
+
+// Practicing my render functions:
+// function renderBookTitles(books, container) {
+//   container.textContent = "";
+//   books.forEach((book) => {
+//     const p = document.createElement("p");
+//     p.textContent = book.title;
+//     container.appendChild(p);
+//   });
+// }
+
+// const featuredBooksContainer = document.getElementById("featuredBooks");
+// const books = store.getFeaturedBooks();
+
+// renderBookTitles(books, featuredBooksContainer);

@@ -129,3 +129,38 @@ const store = new BookStore();
 
 // console.log(store.searchBooks("tolkien"));
 // console.log(store.searchBooks("atomic"));
+
+// ! ------PRACTICING MY JS--------
+
+function getAllBookTitles(books) {
+  return books.map((book) => book.title);
+}
+
+const titles = getAllBookTitles(store.getAllBooks());
+console.log(titles);
+
+const fantasyBooks = store
+  .getAllBooks()
+  .filter((book) => book.genre === "Fantasy");
+console.log(fantasyBooks);
+
+//Start at 0, go through each book, keep adding stock.
+const totalStock = store.getAllBooks().reduce((sum, book) => {
+  return sum + book.stock;
+}, 0);
+console.log(totalStock);
+
+function normalize(input) {
+  return input.trim().toLowerCase();
+}
+console.log(normalize("  DONE   "));
+
+function tokenize(input) {
+  return input.trim().toLowerCase().split(" ");
+}
+console.log(tokenize("The Hobbit by Tolkien"));
+
+function formatBook(book) {
+  return `${book.title} by ${book.author}`;
+}
+console.log(formatBook(store.getAllBooks()[0]));

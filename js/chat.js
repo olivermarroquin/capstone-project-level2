@@ -57,20 +57,20 @@ async function getKey() {
     throw new Error("Could not get secure API Key");
   }
 }
-// getKey();
+// getKey(); -- moved the getKey() test to the main function.
 
 async function callAI(userQuestion, key) {
   const proxyURL = "https://corsproxy.io/?url=";
   const workersEndpoint =
     "https://api.cloudflare.com/client/v4/accounts/83cf2c15a58cddcc9466f6057963dbf9/ai/run/@cf/meta/llama-3-8b-instruct";
   const url = proxyURL + workersEndpoint;
-  //to give context to my AI about my books in inventory.
+  //to give context to my AI about my books in inventory since the AI cannot read JS array of objects but can read strings. I used a map so that I could loop through each book and transform it.
   const inventoryText = store
     .getAllBooks()
     .map((book) => {
       return `${book.title} by ${book.author}. Genre: ${book.genre}. Price: $${book.price}. Stock: ${book.stock}. Description: ${book.description}`;
     })
-    .join(" ");
+    .join(" "); // takes my array of single book information/interpolations and combines it into one string with a space separating them.
   const promptBody = {
     messages: [
       {
@@ -100,13 +100,15 @@ async function callAI(userQuestion, key) {
     throw new Error(`Could not get AI response: ${errorText}`);
   }
   const data = await res.json();
-  return data?.result?.response || "I could not find an answer";
+  console.log(data);
+  //   return data.result.response;
+  return data?.result?.response || "I could not find an answer"; //i used optional chaining, so that it would return undefined instead of crashing if 'result' does not exist. and || to say if left side is undefined, then use this fallback message.
 }
 
 //need to change this function to async since it is now calling AI and is not just local.
 async function handleSubmit(event) {
   event.preventDefault();
-  const userQuestion = promptEl.value.trim();
+  const userQuestion = promptEl.value.trim(); //I remove any deadspaces so that if spaces were entered in the input field, it would make it empty and say: Please enter a question.
   if (!userQuestion) {
     renderStatus("Please enter a question.");
     return;
@@ -132,14 +134,14 @@ async function handleSubmit(event) {
   }
 }
 
-function main() {
+async function main() {
   renderMessage(
     "Hi! Ask me about our books, authors, genres, prices, or recommendations.",
     true,
   );
   inputAreaEl.addEventListener("submit", handleSubmit);
 
-  // practicing my .then() functions to test the getKey() function.
+  // practicing my promise based syntax .then() functions to test the getKey() function. .then() runs when promise succeeds.
   getKey()
     .then((key) => {
       console.log("API key received: ", key);
@@ -148,6 +150,13 @@ function main() {
       console.error(error);
       //   });
     });
+
+  // try {
+  //   const key = await getKey();
+  //   console.log(key);
+  // } catch (error) {
+  //   console.error(error);
+  // }
 }
 
 main();
