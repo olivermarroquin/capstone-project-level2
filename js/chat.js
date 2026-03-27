@@ -148,7 +148,7 @@ async function handleSubmit(event) {
 
 async function main() {
   renderMessage(
-    "Hi! Ask me about our books, authors, genres, prices, or recommendations.",
+    "Hi! Ask me about our books, authors, genres, prices, or recommendations....",
     true,
   );
   inputAreaEl.addEventListener("submit", handleSubmit);
