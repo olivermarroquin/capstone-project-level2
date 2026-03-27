@@ -19,6 +19,7 @@ const featuredBooks = store.getFeaturedBooks();
 function renderBookCard(book) {
   // I used createElement and textContent to safely construct DOM elements and avoid potential injection issues. It also makes the structure clearer and easier to debug compared to inserting HTML strings.
   const article = document.createElement("article");
+  article.className = "bg-white rounded-xl";
 
   const title = document.createElement("h3");
   title.textContent = book.title;
