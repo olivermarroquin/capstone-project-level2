@@ -21,13 +21,15 @@ function renderMessage(message, isBot) {
   if (isBot) {
     p.textContent = `Bot: ${message}`;
     p.className =
-      "max-w-[75%] mr-auto bg-gray-200 text-black px-3 py-2 rounded-lg mb-2";
+      "max-w-[75%] mr-auto bg-gray-200 text-black px-3 py-2 rounded-lg mb-2 shadow-lg hover:shadow-2xl";
   } else {
     p.textContent = `You: ${message}`;
+    //outputEl.querySelector("p");
     p.className =
-      "max-w-[75%] ml-auto bg-blue-600 text-white px-3 py-2 rounded-lg mb-2";
+      "max-w-[75%] ml-auto bg-blue-600 text-white px-3 py-2 rounded-lg mb-2 shadow-lg hover:shadow-2xl";
   }
   outputEl.appendChild(p);
+
   outputEl.scrollTop = outputEl.scrollHeight;
 }
 

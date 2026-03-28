@@ -12,7 +12,7 @@ class BookStore {
         id: 1,
         title: "Atomic Habits",
         author: "James Clear",
-        genre: "Self-help",
+        genre: "Self-Help",
         price: 18.99,
         stock: 4,
         description:
@@ -98,6 +98,7 @@ class BookStore {
     // return filteredBooks;
 
     //METHOD 3 To get the filter:
+    //This is an implicit return => "implied", explicit => "litterally"
     return this.books.filter((book) => book.genre === genre);
   }
 
@@ -132,6 +133,7 @@ const store = new BookStore();
 
 // ! ------PRACTICING MY JS--------
 
+//map returns an array the same size of the original array
 function getAllBookTitles(books) {
   return books.map((book) => book.title);
 }
@@ -139,12 +141,14 @@ function getAllBookTitles(books) {
 const titles = getAllBookTitles(store.getAllBooks());
 console.log(titles);
 
+//filter returns an array the same size of the original array or less
 const fantasyBooks = store
   .getAllBooks()
   .filter((book) => book.genre === "Fantasy");
 console.log(fantasyBooks);
 
 //Start at 0, go through each book, keep adding stock.
+//reduce returns a single value using the accumulator = 'sum'
 const totalStock = store.getAllBooks().reduce((sum, book) => {
   return sum + book.stock;
 }, 0);
